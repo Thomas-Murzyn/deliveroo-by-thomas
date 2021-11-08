@@ -1,9 +1,9 @@
 const Description = ({ name, description, picture }) => {
   return (
-    <div className="container description">
+    <div className="container description-wrapper">
       <div className="col1">
         <h1>{name}</h1>
-        <p>{description}</p>
+        <p className="p-description">{description}</p>
       </div>
 
       <div className="col2">

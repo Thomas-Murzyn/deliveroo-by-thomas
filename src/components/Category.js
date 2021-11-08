@@ -1,21 +1,33 @@
 const Category = ({ category }) => {
   return (
-    <div className="container category">
+    <>
       <h2>{category.name}</h2>
-      {category.meals.map((meal, index) => {
-        return (
-          <div className="category-container">
-            <div className="category-col1">
-              <h3>{meal.title}</h3>
-              <p>{meal.description}</p>
-              <span>{meal.price} </span>
-              {meal.popular && <span>Populaire</span>}
+      <div className="category">
+        {category.meals.map((meal, index) => {
+          return (
+            <div key={index} className="item">
+              <div className="category-col1">
+                <h3>{meal.title}</h3>
+                <p className="category-description">
+                  {meal.description.slice(0, 70)}
+                </p>
+                <p>
+                  <span className="price">
+                    {meal.price.replace(".", ",")} €{" "}
+                  </span>
+                  {meal.popular && <span className="populaire">Populaire</span>}
+                </p>
+              </div>
+              {meal.picture && (
+                <div className="category-col2">
+                  <img src={meal.picture} alt="" />
+                </div>
+              )}
             </div>
-            <div className="category-col2"></div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
