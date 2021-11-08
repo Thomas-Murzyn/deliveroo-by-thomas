@@ -1,1 +1,51 @@
 /* Other rules */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* HEADER */
+
+header {
+  border-bottom: 1px solid #f2f4f4;
+}
+
+header img {
+  width: 150px;
+}
+
+/* DESCRIPTION */
+
+.description {
+  margin-top: 50px;
+  display: flex;
+}
+
+.col1 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col2 {
+  width: 40%;
+}
+
+.col2 img {
+  width: 100%;
+}
