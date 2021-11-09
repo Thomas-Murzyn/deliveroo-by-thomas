@@ -2,19 +2,23 @@ import { useState } from "react";
 
 const Meal = ({ meal, panier, setPanier, price, setPrice }) => {
   const [inPanier, setInPanier] = useState(false);
-  const [counter, setCounter] = useState(0);
 
   const addToPanier = () => {
     if (!inPanier) {
       const newPanier = [...panier];
+      meal.quantity = 1;
       newPanier.push(meal);
       setPanier(newPanier);
       setPrice((Number(price) + Number(meal.price)).toFixed(2));
-      setCounter(counter + 1);
+
       setInPanier(true);
     } else {
+      const newTab = [...panier];
+      const index = newTab.indexOf(meal);
+      newTab[index].quantity = newTab[index].quantity + 1;
+
+      setPanier(newTab);
       setPrice((Number(price) + Number(meal.price)).toFixed(2));
-      setCounter(counter + 1);
     }
   };
 

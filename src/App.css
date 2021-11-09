@@ -192,15 +192,31 @@ header img {
 
 .panier-line2 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 10px;
   border-bottom: 1px solid;
   margin-bottom: 10px;
+}
+
+.panier-line2 div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .panier-line3 {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid;
+}
+
+.panier-moins {
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.panier-plus {
+  cursor: pointer;
+  border: 1px solid;
 }
