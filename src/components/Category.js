@@ -1,6 +1,6 @@
 import Meal from "./Meal";
 
-const Category = ({ category, panier, setPanier, price, setPrice }) => {
+const Category = ({ category, addToPanier }) => {
   return (
     <>
       <h2>{category.name}</h2>
@@ -8,13 +8,10 @@ const Category = ({ category, panier, setPanier, price, setPrice }) => {
         {category.meals.map((meal, index) => {
           return (
             <Meal
-              index={index}
-              panier={panier}
-              setPanier={setPanier}
-              key={meal.id}
+              index={meal.id}
+              key={index}
               meal={meal}
-              price={price}
-              setPrice={setPrice}
+              addToPanier={addToPanier}
             />
           );
         })}

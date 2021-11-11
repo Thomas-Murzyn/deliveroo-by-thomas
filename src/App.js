@@ -28,6 +28,21 @@ function App() {
     fetchData();
   }, []);
 
+  const addToPanier = (item) => {
+    const newPanier = [...panier];
+
+    const exist = newPanier.find((elem) => elem.id === item.id);
+
+    if (!exist) {
+      item.quantity = 1;
+      newPanier.push(item);
+      setPanier(newPanier);
+    } else {
+      exist.quantity++;
+      setPanier(newPanier);
+    }
+  };
+
   return !isLoading ? (
     <div>Chargement en cours</div>
   ) : (
@@ -47,12 +62,9 @@ function App() {
             return (
               item.meals.length > 0 && (
                 <Category
-                  panier={panier}
-                  setPanier={setPanier}
                   key={index}
                   category={item}
-                  price={price}
-                  setPrice={setPrice}
+                  addToPanier={addToPanier}
                 />
               )
             );
