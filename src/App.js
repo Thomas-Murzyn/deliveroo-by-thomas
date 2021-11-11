@@ -43,6 +43,19 @@ function App() {
     }
   };
 
+  const removeToPanier = (item) => {
+    const newPanier = [...panier];
+
+    if (item.quantity === 1) {
+      const index = newPanier.indexOf(item);
+      newPanier.splice(index, 1);
+      setPanier(newPanier);
+    } else {
+      item.quantity--;
+      setPanier(newPanier);
+    }
+  };
+
   return !isLoading ? (
     <div>Chargement en cours</div>
   ) : (
@@ -73,6 +86,8 @@ function App() {
 
         <div className="panier-container">
           <Panier
+            removeToPanier={removeToPanier}
+            addToPanier={addToPanier}
             panier={panier}
             setPanier={setPanier}
             price={price}
